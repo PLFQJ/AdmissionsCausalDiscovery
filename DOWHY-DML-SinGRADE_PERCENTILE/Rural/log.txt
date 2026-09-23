@@ -1,0 +1,717 @@
+
+======================================================================
+ANALISIS CAUSAL CON DoWhy
+======================================================================
+
+Versiones instaladas:
+DoWhy : 0.14
+EconML: 0.17.0
+
+======================================================================
+CARGA DEL DATASET
+======================================================================
+
+Cargando dataset...
+
+Columnas del dataset:
+['GRADUATION_YEAR', 'SCORE_NEM', 'AVERAGE_MATH_LANG', 'GENDER', 'HOW_MANY_WORK', 'HOW_MANY_STUDY', 'INCOME_PERCENTILE', 'MOTHER_EDUCATION', 'FATHER_EDUCATION', 'PREVIOUS_ADMISSION', 'SCHOOL_TYPE', 'SCHOOL_DEPENDENCY', 'WORK', 'RURAL']
+
+Procesando...
+
+Numero de observaciones: 270411
+
+======================================================================
+CARGANDO DAG PC
+======================================================================
+
+Archivo DOT: PC_output_graph.dot
+
+Archivo DOT leído correctamente.
+
+Variables encontradas en PC:
+    0 -> GRADUATION_YEAR
+    1 -> AVERAGE_MATH_LANG
+    2 -> GENDER
+    3 -> HOW_MANY_WORK
+    4 -> HOW_MANY_STUDY
+    5 -> INCOME_PERCENTILE
+    6 -> MOTHER_EDUCATION
+    7 -> FATHER_EDUCATION
+    8 -> PREVIOUS_ADMISSION
+    9 -> SCHOOL_TYPE
+   10 -> SCHOOL_DEPENDENCY
+   11 -> WORK
+   12 -> RURAL
+   13 -> SCORE_NEM
+
+Relaciones encontradas en PC:
+  GRADUATION_YEAR -> AVERAGE_MATH_LANG
+  GRADUATION_YEAR -> GENDER
+  GRADUATION_YEAR -> HOW_MANY_STUDY
+  GRADUATION_YEAR -> PREVIOUS_ADMISSION
+  GRADUATION_YEAR -> WORK
+  GRADUATION_YEAR -> RURAL
+  GRADUATION_YEAR -> SCORE_NEM
+  AVERAGE_MATH_LANG -> INCOME_PERCENTILE
+  AVERAGE_MATH_LANG -> MOTHER_EDUCATION
+  AVERAGE_MATH_LANG -> FATHER_EDUCATION
+  AVERAGE_MATH_LANG -> SCHOOL_TYPE
+  AVERAGE_MATH_LANG -> SCHOOL_DEPENDENCY
+  AVERAGE_MATH_LANG -> WORK
+  AVERAGE_MATH_LANG -> SCORE_NEM
+  GENDER -> HOW_MANY_WORK
+  GENDER -> INCOME_PERCENTILE
+  GENDER -> MOTHER_EDUCATION
+  GENDER -> FATHER_EDUCATION
+  GENDER -> WORK
+  GENDER -> RURAL
+  GENDER -> SCORE_NEM
+  HOW_MANY_WORK -> HOW_MANY_STUDY
+  HOW_MANY_WORK -> INCOME_PERCENTILE
+  HOW_MANY_WORK -> MOTHER_EDUCATION
+  HOW_MANY_WORK -> WORK
+  HOW_MANY_STUDY -> MOTHER_EDUCATION
+  HOW_MANY_STUDY -> FATHER_EDUCATION
+  HOW_MANY_STUDY -> PREVIOUS_ADMISSION
+  HOW_MANY_STUDY -> SCHOOL_TYPE
+  HOW_MANY_STUDY -> SCHOOL_DEPENDENCY
+  INCOME_PERCENTILE -> MOTHER_EDUCATION
+  INCOME_PERCENTILE -> FATHER_EDUCATION
+  INCOME_PERCENTILE -> SCHOOL_TYPE
+  INCOME_PERCENTILE -> SCHOOL_DEPENDENCY
+  INCOME_PERCENTILE -> SCORE_NEM
+  FATHER_EDUCATION -> MOTHER_EDUCATION
+  SCHOOL_TYPE -> MOTHER_EDUCATION
+  SCHOOL_DEPENDENCY -> MOTHER_EDUCATION
+  MOTHER_EDUCATION -> WORK
+  MOTHER_EDUCATION -> SCORE_NEM
+  FATHER_EDUCATION -> PREVIOUS_ADMISSION
+  FATHER_EDUCATION -> SCHOOL_TYPE
+  FATHER_EDUCATION -> SCHOOL_DEPENDENCY
+  FATHER_EDUCATION -> WORK
+  FATHER_EDUCATION -> SCORE_NEM
+  PREVIOUS_ADMISSION -> SCHOOL_TYPE
+  PREVIOUS_ADMISSION -> WORK
+  SCHOOL_TYPE -> SCHOOL_DEPENDENCY
+  SCHOOL_TYPE -> RURAL
+  SCHOOL_TYPE -> SCORE_NEM
+  SCHOOL_DEPENDENCY -> WORK
+  SCHOOL_DEPENDENCY -> RURAL
+  WORK -> SCORE_NEM
+  RURAL -> SCORE_NEM
+
+Relaciones dirigidas: 54
+Relaciones no orientadas: 0
+
+----------------------------------------------------------------------
+GRAFO COMPATIBLE CON DoWhy
+----------------------------------------------------------------------
+Nodos: 14
+Aristas conservadas: 54
+Aristas dirigidas originales: 54
+Aristas no orientadas: 0
+Aristas descartadas por ciclos: 0
+
+DAG verificado correctamente.
+
+======================================================================
+ESTRUCTURA CAUSAL UTILIZADA POR DoWhy
+======================================================================
+
+Tratamiento: RURAL
+Resultado  : SCORE_NEM
+
+Aristas utilizadas:
+  GRADUATION_YEAR -> AVERAGE_MATH_LANG
+  GRADUATION_YEAR -> GENDER
+  GRADUATION_YEAR -> HOW_MANY_STUDY
+  GRADUATION_YEAR -> PREVIOUS_ADMISSION
+  GRADUATION_YEAR -> WORK
+  GRADUATION_YEAR -> RURAL
+  GRADUATION_YEAR -> SCORE_NEM
+  AVERAGE_MATH_LANG -> INCOME_PERCENTILE
+  AVERAGE_MATH_LANG -> MOTHER_EDUCATION
+  AVERAGE_MATH_LANG -> FATHER_EDUCATION
+  AVERAGE_MATH_LANG -> SCHOOL_TYPE
+  AVERAGE_MATH_LANG -> SCHOOL_DEPENDENCY
+  AVERAGE_MATH_LANG -> WORK
+  AVERAGE_MATH_LANG -> SCORE_NEM
+  GENDER -> HOW_MANY_WORK
+  GENDER -> INCOME_PERCENTILE
+  GENDER -> MOTHER_EDUCATION
+  GENDER -> FATHER_EDUCATION
+  GENDER -> WORK
+  GENDER -> RURAL
+  GENDER -> SCORE_NEM
+  HOW_MANY_WORK -> HOW_MANY_STUDY
+  HOW_MANY_WORK -> INCOME_PERCENTILE
+  HOW_MANY_WORK -> MOTHER_EDUCATION
+  HOW_MANY_WORK -> WORK
+  HOW_MANY_STUDY -> MOTHER_EDUCATION
+  HOW_MANY_STUDY -> FATHER_EDUCATION
+  HOW_MANY_STUDY -> PREVIOUS_ADMISSION
+  HOW_MANY_STUDY -> SCHOOL_TYPE
+  HOW_MANY_STUDY -> SCHOOL_DEPENDENCY
+  INCOME_PERCENTILE -> MOTHER_EDUCATION
+  INCOME_PERCENTILE -> FATHER_EDUCATION
+  INCOME_PERCENTILE -> SCHOOL_TYPE
+  INCOME_PERCENTILE -> SCHOOL_DEPENDENCY
+  INCOME_PERCENTILE -> SCORE_NEM
+  MOTHER_EDUCATION -> WORK
+  MOTHER_EDUCATION -> SCORE_NEM
+  FATHER_EDUCATION -> MOTHER_EDUCATION
+  FATHER_EDUCATION -> PREVIOUS_ADMISSION
+  FATHER_EDUCATION -> SCHOOL_TYPE
+  FATHER_EDUCATION -> SCHOOL_DEPENDENCY
+  FATHER_EDUCATION -> WORK
+  FATHER_EDUCATION -> SCORE_NEM
+  PREVIOUS_ADMISSION -> SCHOOL_TYPE
+  PREVIOUS_ADMISSION -> WORK
+  SCHOOL_TYPE -> MOTHER_EDUCATION
+  SCHOOL_TYPE -> SCHOOL_DEPENDENCY
+  SCHOOL_TYPE -> RURAL
+  SCHOOL_TYPE -> SCORE_NEM
+  SCHOOL_DEPENDENCY -> MOTHER_EDUCATION
+  SCHOOL_DEPENDENCY -> WORK
+  SCHOOL_DEPENDENCY -> RURAL
+  WORK -> SCORE_NEM
+  RURAL -> SCORE_NEM
+
+======================================================================
+CREANDO MODELO DoWhy
+======================================================================
+
+Modelo DoWhy creado correctamente.
+
+======================================================================
+IDENTIFICACIÓN DEL EFECTO CAUSAL
+======================================================================
+Estimand type: EstimandType.NONPARAMETRIC_ATE
+
+### Estimand : 1
+Estimand name: backdoor
+Estimand expression:
+   d                                                                       
+────────(E[SCORE_NEM|GRADUATION_YEAR,SCHOOL_TYPE,GENDER,SCHOOL_DEPENDENCY])
+d[RURAL]                                                                   
+Estimand assumption 1, Unconfoundedness: If U→{RURAL} and U→SCORE_NEM then P(SCORE_NEM|RURAL,GRADUATION_YEAR,SCHOOL_TYPE,GENDER,SCHOOL_DEPENDENCY,U) = P(SCORE_NEM|RURAL,GRADUATION_YEAR,SCHOOL_TYPE,GENDER,SCHOOL_DEPENDENCY)
+
+### Estimand : 2
+Estimand name: iv
+No such variable(s) found!
+
+### Estimand : 3
+Estimand name: frontdoor
+No such variable(s) found!
+
+### Estimand : 4
+Estimand name: general_adjustment
+Estimand expression:
+   d                                                                       
+────────(E[SCORE_NEM|GRADUATION_YEAR,GENDER,SCHOOL_TYPE,SCHOOL_DEPENDENCY])
+d[RURAL]                                                                   
+Estimand assumption 1, Unconfoundedness: If U→{RURAL} and U→SCORE_NEM then P(SCORE_NEM|RURAL,GRADUATION_YEAR,GENDER,SCHOOL_TYPE,SCHOOL_DEPENDENCY,U) = P(SCORE_NEM|RURAL,GRADUATION_YEAR,GENDER,SCHOOL_TYPE,SCHOOL_DEPENDENCY)
+
+
+
+
+
+---- Linear Model ----
+*** Causal Estimate ***
+
+## Identified estimand
+Estimand type: EstimandType.NONPARAMETRIC_ATE
+
+### Estimand : 1
+Estimand name: backdoor
+Estimand expression:
+   d                                                                       
+────────(E[SCORE_NEM|GRADUATION_YEAR,SCHOOL_TYPE,GENDER,SCHOOL_DEPENDENCY])
+d[RURAL]                                                                   
+Estimand assumption 1, Unconfoundedness: If U→{RURAL} and U→SCORE_NEM then P(SCORE_NEM|RURAL,GRADUATION_YEAR,SCHOOL_TYPE,GENDER,SCHOOL_DEPENDENCY,U) = P(SCORE_NEM|RURAL,GRADUATION_YEAR,SCHOOL_TYPE,GENDER,SCHOOL_DEPENDENCY)
+
+## Realized estimand
+b: SCORE_NEM~RURAL+GRADUATION_YEAR+SCHOOL_TYPE+GENDER+SCHOOL_DEPENDENCY+RURAL*MOTHER_EDUCATION+RURAL*WORK
+Target units: 
+
+## Estimate
+Mean value: -6.8729646123561
+### Conditional Estimates
+__categorical__MOTHER_EDUCATION  __categorical__WORK
+(0.999, 6.0]                     (-0.001, 1.0]         -32.033099
+(6.0, 7.0]                       (-0.001, 1.0]         -13.986667
+(7.0, 9.0]                       (-0.001, 1.0]          -0.091553
+(9.0, 10.0]                      (-0.001, 1.0]          10.899748
+(10.0, 12.0]                     (-0.001, 1.0]          20.209590
+dtype: float64
+INTERPRETACIÓN DEL RESULTADO
+METODO ES: method_name=backdoor.linear_regression
+
+======================================================================
+INTERPRETACIÓN
+======================================================================
+
+ATE estimado = -6.872965
+
+¿Qué representa este valor?
+----------------------------------------
+El ATE (Average Treatment Effect) representa el cambio
+promedio esperado en la variable resultado cuando
+el tratamiento cambia desde el valor de control
+(0) al valor de tratamiento (1), manteniendo
+ajustadas las variables de confusión del DAG.
+
+Interpretación:
+El tratamiento disminuye el resultado en promedio 6.8730 unidades.
+
+Magnitud del efecto: muy grande
+
+Conclusión:
+Este valor corresponde al efecto causal promedio (ATE)
+estimado mediante Regresión Lineal usando el criterio
+Backdoor para controlar los factores de confusión.
+La interpretación asume que el DAG especificado es correcto
+y que no existen confusores no observados relevantes.
+FIN INTERPRETACION METODO ES: method_name=backdoor.linear_regression
+
+
+
+
+---- EconML methods ----
+---- EconML methods ----efecto promedio
+*** Causal Estimate ***
+
+## Identified estimand
+Estimand type: EstimandType.NONPARAMETRIC_ATE
+
+### Estimand : 1
+Estimand name: backdoor
+Estimand expression:
+   d                                                                       
+────────(E[SCORE_NEM|GRADUATION_YEAR,SCHOOL_TYPE,GENDER,SCHOOL_DEPENDENCY])
+d[RURAL]                                                                   
+Estimand assumption 1, Unconfoundedness: If U→{RURAL} and U→SCORE_NEM then P(SCORE_NEM|RURAL,GRADUATION_YEAR,SCHOOL_TYPE,GENDER,SCHOOL_DEPENDENCY,U) = P(SCORE_NEM|RURAL,GRADUATION_YEAR,SCHOOL_TYPE,GENDER,SCHOOL_DEPENDENCY)
+
+## Realized estimand
+b: SCORE_NEM~RURAL+GRADUATION_YEAR+SCHOOL_TYPE+GENDER+SCHOOL_DEPENDENCY | MOTHER_EDUCATION,WORK
+Target units: ate
+
+## Estimate
+Mean value: -6.4453062408744355
+Effect estimates: [[-3.44922399]
+ [-3.45227513]
+ [-6.67226271]
+ ...
+ [-6.66921156]
+ [-6.66921156]
+ [-3.45532628]]
+
+
+======================================================================
+INTERPRETACIÓN DEL DOUBLE MACHINE LEARNING
+======================================================================
+
+ATE estimado (DML): -6.445306
+
+¿Qué significa este resultado?
+---------------------------------------
+Double Machine Learning estima el efecto causal
+eliminando primero el efecto de las variables
+de confusión mediante modelos de Machine Learning.
+Posteriormente estima el efecto causal sobre
+la información residual (ortogonalización).
+
+Este procedimiento reduce el sesgo cuando
+las relaciones entre variables son complejas
+o altamente no lineales.
+
+Interpretación:
+El tratamiento reduce el resultado en promedio 6.4453 unidades.
+
+Magnitud del efecto: muy grande
+
+¿Por qué utilizar DML?
+-----------------------
+✓ Utiliza modelos de Machine Learning para
+  modelar el tratamiento y el resultado.
+✓ Reduce el sesgo por errores de especificación.
+✓ Funciona adecuadamente cuando existen
+  relaciones no lineales.
+✓ Es apropiado para conjuntos de datos
+  con muchas variables.
+
+Conclusión:
+El valor obtenido corresponde al Average
+Treatment Effect (ATE) estimado mediante
+Double Machine Learning.
+Si el DAG es correcto y se cumplen los
+supuestos de identificabilidad, este valor
+representa el efecto causal promedio del
+tratamiento sobre la variable resultado.
+FIN INTERPRETACIÓN DEL DOUBLE MACHINE LEARNING
+
+
+
+
+---- EconML methods ----efecto TARGET
+*** Causal Estimate ***
+
+## Identified estimand
+Estimand type: EstimandType.NONPARAMETRIC_ATE
+
+### Estimand : 1
+Estimand name: backdoor
+Estimand expression:
+   d                                                                       
+────────(E[SCORE_NEM|GRADUATION_YEAR,SCHOOL_TYPE,GENDER,SCHOOL_DEPENDENCY])
+d[RURAL]                                                                   
+Estimand assumption 1, Unconfoundedness: If U→{RURAL} and U→SCORE_NEM then P(SCORE_NEM|RURAL,GRADUATION_YEAR,SCHOOL_TYPE,GENDER,SCHOOL_DEPENDENCY,U) = P(SCORE_NEM|RURAL,GRADUATION_YEAR,SCHOOL_TYPE,GENDER,SCHOOL_DEPENDENCY)
+
+## Realized estimand
+b: SCORE_NEM~RURAL+GRADUATION_YEAR+SCHOOL_TYPE+GENDER+SCHOOL_DEPENDENCY | MOTHER_EDUCATION,WORK
+Target units: Data subset defined by a function
+
+## Estimate
+Mean value: -6.44851944457509
+Effect estimates: [[-3.48147179]
+ [-3.49909098]
+ [-6.73173018]
+ ...
+ [-6.71411099]
+ [-6.71411099]
+ [-3.51671016]]
+
+
+======================================================================
+INTERPRETACIÓN DEL CATE
+======================================================================
+
+CATE estimado = -6.448519
+
+¿Qué significa este resultado?
+------------------------------------------
+A diferencia del ATE, el CATE estima el
+efecto causal únicamente para un subconjunto
+de la población.
+
+En este análisis el subconjunto corresponde a:
+    SCORE_NEM > 1
+
+Es decir, el efecto causal se calcula
+solamente para las observaciones que
+cumplen dicha condición.
+
+Interpretación:
+Para este grupo específico, el tratamiento disminuye el resultado en promedio 6.4485 unidades.
+
+Magnitud del efecto: muy grande
+
+¿Por qué calcular un CATE?
+--------------------------
+No todos los individuos responden
+de la misma forma al tratamiento.
+El CATE permite identificar
+heterogeneidad en los efectos causales.
+Es posible que un tratamiento tenga
+un efecto positivo para algunos grupos
+y negativo para otros.
+
+Conclusión:
+El valor obtenido corresponde al efecto
+causal promedio únicamente para las
+observaciones que cumplen la condición
+SCORE_NEM > 1.
+No debe interpretarse como el efecto
+causal promedio de toda la población.
+FIN INTERPRETACIÓN DEL CATE DOUBLE MACHINE LEARNING
+
+
+
+
+---- EconML methods ----efecto TARGET en 1
+True causal estimate is 0         496
+1         504
+2         400
+3         722
+4         653
+         ... 
+270406    598
+270407    581
+270408    717
+270409    561
+270410    515
+Name: SCORE_NEM, Length: 270411, dtype: int64
+*** Causal Estimate ***
+
+## Identified estimand
+Estimand type: EstimandType.NONPARAMETRIC_ATE
+
+### Estimand : 1
+Estimand name: backdoor
+Estimand expression:
+   d                                                                       
+────────(E[SCORE_NEM|GRADUATION_YEAR,SCHOOL_TYPE,GENDER,SCHOOL_DEPENDENCY])
+d[RURAL]                                                                   
+Estimand assumption 1, Unconfoundedness: If U→{RURAL} and U→SCORE_NEM then P(SCORE_NEM|RURAL,GRADUATION_YEAR,SCHOOL_TYPE,GENDER,SCHOOL_DEPENDENCY,U) = P(SCORE_NEM|RURAL,GRADUATION_YEAR,SCHOOL_TYPE,GENDER,SCHOOL_DEPENDENCY)
+
+## Realized estimand
+b: SCORE_NEM~RURAL+GRADUATION_YEAR+SCHOOL_TYPE+GENDER+SCHOOL_DEPENDENCY | MOTHER_EDUCATION,WORK
+Target units: 
+
+## Estimate
+Mean value: -6.44226687789382
+Effect estimates: [[-3.35279395]
+ [-3.35279395]
+ [-6.66369914]
+ ...
+ [-6.66369914]
+ [-6.66369914]
+ [-3.35279395]]
+
+
+======================================================================
+INTERPRETACIÓN DEL CATE INDIVIDUAL
+======================================================================
+
+Efecto causal estimado = -6.442267
+
+¿Qué significa este resultado?
+---------------------------------------------
+En este análisis se utilizó:
+target_units = 1
+Por lo tanto, el efecto estimado no representa
+el promedio para toda la población (ATE), sino
+el efecto causal para una unidad o instancia
+específica, según la definición utilizada por
+DoWhy/EconML.
+
+Interpretación:
+Para esta unidad, recibir el tratamiento disminuye el resultado en aproximadamente 6.4423 unidades.
+
+Magnitud del efecto: muy grande
+
+Características del método:
+---------------------------
+• Utiliza Double Machine Learning.
+• Ajusta automáticamente el efecto
+  de las covariables mediante
+  algoritmos de Machine Learning.
+• Permite estimar efectos causales
+  heterogéneos entre individuos.
+• El efecto puede ser diferente
+  para otras observaciones.
+
+Conclusión:
+El valor obtenido corresponde al
+efecto causal estimado para una
+unidad específica y no debe
+interpretarse como el efecto
+causal promedio de toda la población.
+FIN INTERPRETACIÓN DEL CATE CON TARGET DOUBLE MACHINE LEARNING
+
+
+
+
+CATE Object and Confidence Intervals
+*** Causal Estimate ***
+
+## Identified estimand
+Estimand type: EstimandType.NONPARAMETRIC_ATE
+
+### Estimand : 1
+Estimand name: backdoor
+Estimand expression:
+   d                                                                       
+────────(E[SCORE_NEM|GRADUATION_YEAR,SCHOOL_TYPE,GENDER,SCHOOL_DEPENDENCY])
+d[RURAL]                                                                   
+Estimand assumption 1, Unconfoundedness: If U→{RURAL} and U→SCORE_NEM then P(SCORE_NEM|RURAL,GRADUATION_YEAR,SCHOOL_TYPE,GENDER,SCHOOL_DEPENDENCY,U) = P(SCORE_NEM|RURAL,GRADUATION_YEAR,SCHOOL_TYPE,GENDER,SCHOOL_DEPENDENCY)
+
+## Realized estimand
+b: SCORE_NEM~RURAL+GRADUATION_YEAR+SCHOOL_TYPE+GENDER+SCHOOL_DEPENDENCY | MOTHER_EDUCATION,WORK
+Target units: ate
+
+## Estimate
+Mean value: -6.472856564883359
+Effect estimates: [[-3.47256283]
+ [-3.49270201]
+ [-6.76854107]
+ ...
+ [-6.74840188]
+ [-6.74840188]
+ [-3.5128412 ]]
+95.0% confidence interval: [[[-7.07392439 -7.01012283 -8.46086139 ... -8.06787425 -8.06787425
+   -7.05404198]]
+
+ [[-0.40511943 -0.39038899 -5.39481456 ... -5.62820746 -5.62820746
+   -0.37412442]]]
+
+
+======================================================================
+INTERPRETACIÓN DEL ATE (DOUBLE MACHINE LEARNING)
+======================================================================
+
+ATE estimado = -6.472857
+
+¿Qué significa este resultado?
+---------------------------------------------
+Se estimó el Average Treatment Effect (ATE)
+utilizando Double Machine Learning (DML).
+El ATE representa el cambio promedio esperado
+en la variable resultado cuando el tratamiento
+cambia del valor de control al valor tratado,
+después de controlar los factores de confusión
+identificados en el DAG.
+
+Interpretación:
+El tratamiento reduce el resultado en promedio 6.4729 unidades.
+
+Magnitud del efecto: muy grande
+
+No fue posible recuperar los
+intervalos de confianza.
+
+¿Por qué utilizar Double Machine Learning?
+---------------------------------------------
+• Modela el tratamiento mediante Machine Learning.
+• Modela el resultado mediante Machine Learning.
+• Reduce el sesgo por especificación incorrecta.
+• Captura relaciones no lineales.
+• Es robusto en problemas de alta dimensionalidad.
+
+¿Por qué utilizar Bootstrap?
+---------------------------------------------
+Bootstrap genera múltiples muestras
+del conjunto de datos para cuantificar
+la incertidumbre de la estimación.
+Esto permite construir intervalos
+de confianza sin depender estrictamente
+de supuestos de normalidad.
+
+Conclusión:
+El valor obtenido corresponde al efecto
+causal promedio (ATE) estimado mediante
+Double Machine Learning.
+Los intervalos de confianza obtenidos
+mediante Bootstrap permiten evaluar la
+precisión y la incertidumbre de la estimación.
+FIN INTERPRETACIÓN DEL ATE CON DOUBLE MACHINE LEARNING CON INTERVALOS DE CONFIANZA
+
+
+
+
+VARIANTES
+Can provide a new inputs as target units and estimate CATE on them.
+Es posible proporcionar nuevas entradas como unidades objetivo y estimar el CATE para ellas.
+        GRADUATION_YEAR  SCORE_NEM  ...  WORK  RURAL
+259382             2020        539  ...     0      1
+199546             2020        515  ...     0      0
+252692             2020        699  ...     0      0
+75072              2018        535  ...     0      0
+164579             2020        497  ...     0      1
+
+[5 rows x 14 columns]
+[[-6.64717519]
+ [-6.64717519]
+ [-6.64717519]
+ [-6.64717519]
+ [-6.64717519]
+ [-6.64717519]
+ [-6.64717519]
+ [-6.64717519]
+ [-6.64717519]
+ [-6.64717519]
+ [-6.64717519]
+ [-6.64717519]
+ [-3.32921932]
+ [-6.64717519]
+ [-6.64717519]
+ [-6.64717519]
+ [-6.64717519]
+ [-6.64717519]
+ [-6.64717519]
+ [-6.64717519]]
+
+======================================================================
+INTERPRETACIÓN DE LOS EFECTOS CAUSALES INDIVIDUALES (CATE)
+======================================================================
+
+Número de observaciones evaluadas : 20
+
+¿Qué significa este resultado?
+---------------------------------------------
+Se estimó un efecto causal individual
+(Conditional Average Treatment Effect)
+para cada observación contenida en
+el conjunto de prueba (test_df).
+
+Cada valor representa cuánto cambia
+la variable resultado para una
+observación específica cuando pasa
+del grupo de control al tratado.
+
+Resumen de los efectos individuales
+---------------------------------------------
+Promedio : -6.4813
+Desv. estándar : 0.7231
+Mínimo : -6.6472
+Máximo : -3.3292
+Mediana : -6.6472
+
+Distribución de efectos
+---------------------------------------------
+Efectos positivos : 0
+Efectos negativos : 20
+Efectos nulos : 0
+
+Primeros efectos individuales
+---------------------------------------------
+Observación   1:  -6.6472   (Disminuye)
+Observación   2:  -6.6472   (Disminuye)
+Observación   3:  -6.6472   (Disminuye)
+Observación   4:  -6.6472   (Disminuye)
+Observación   5:  -6.6472   (Disminuye)
+Observación   6:  -6.6472   (Disminuye)
+Observación   7:  -6.6472   (Disminuye)
+Observación   8:  -6.6472   (Disminuye)
+Observación   9:  -6.6472   (Disminuye)
+Observación  10:  -6.6472   (Disminuye)
+
+Interpretación:
+Existe heterogeneidad en los efectos
+causales.
+El impacto del tratamiento cambia
+entre distintos individuos.
+
+Conclusión:
+Double Machine Learning permitió
+estimar un efecto causal diferente
+para cada observación del conjunto
+de prueba.
+Estos resultados permiten identificar
+qué individuos se benefician más
+del tratamiento y cuáles presentan
+efectos pequeños o incluso negativos.
+FIN INTERPRETACIÓN DE LOS CATE INDIVIDUALES 
+
+
+
+
+Can also retrieve the raw EconML estimator object for any further operations
+También es posible recuperar el objeto estimador EconML sin procesar para realizar operaciones adicionales.
+<econml.dml.dml.DML object at 0x114bd13d0>
+
+======================================================================
+RESUMEN FINAL DEL ANALISIS PC + DoWhy
+======================================================================
+
+CSV utilizado : dataset_270411_final_ingles_sin_GPSR.csv
+DOT utilizado : PC_output_graph.dot
+Tratamiento   : RURAL
+Resultado     : SCORE_NEM
+
+Nodos del DAG DoWhy: 14
+Aristas del DAG DoWhy: 54
+Aristas descartadas por ciclos: 0
+Aristas no orientadas del DOT: 0
+
+ANALISIS FINALIZADO.
