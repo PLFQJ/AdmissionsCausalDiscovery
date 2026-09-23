@@ -35,3 +35,7 @@ A folder containing two Python program executions regarding whether or not a stu
 ### PC-TF.py
 
 Python program that outputs the result of the falsification test.
+
+### pc_analisis_paper.ipynb
+
+Python program in a Jupyter Notebook that generates the graphs for the study analysis.
